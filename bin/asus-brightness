@@ -1,0 +1,17 @@
+#!/bin/sh
+if [ "$@" == "inc" ]; then
+  cd /sys/class/backlight/intel_backlight/
+  CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
+  TO=`expr ${CURRENT} + 100`
+  echo "${CURRENT} + 100 = ${TO}"
+  echo "${TO}" > brightness
+elif [ "$@" == "dec" ]; then
+  echo dec
+  cd /sys/class/backlight/intel_backlight/
+  CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
+  TO=`expr ${CURRENT} - 100`
+  echo "${CURRENT} - 100 = ${TO}"
+  echo "${TO}" > brightness
+else
+  echo 'give me inc or dec'
+fi
