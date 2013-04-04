@@ -1,2 +1,5 @@
     $ sudo asus-brightness inc
     $ sudo asus-brightness dec
+
+Author: Tatsuhiro Ujihisa
+License: GPLv3 or any later version
