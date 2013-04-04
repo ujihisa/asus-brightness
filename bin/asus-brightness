@@ -1,18 +1,18 @@
 #!/bin/sh
-if [ "$@" = "inc" ]; then
+if [ "$1" = "inc" ]; then
   cd /sys/class/backlight/intel_backlight/
   CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
   TO=`expr ${CURRENT} + 100`
   echo "${CURRENT} + 100 = ${TO}"
   echo "${TO}" > brightness
-elif [ "$@" = "dec" ]; then
+elif [ "$1" = "dec" ]; then
   echo dec
   cd /sys/class/backlight/intel_backlight/
   CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
   TO=`expr ${CURRENT} - 100`
   echo "${CURRENT} - 100 = ${TO}"
   echo "${TO}" > brightness
-elif [ "$1" = "set" ]; then
+elif [ "${1}" = "set" ]; then
   echo "set ${2}"
   cd /sys/class/backlight/intel_backlight/
   CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
