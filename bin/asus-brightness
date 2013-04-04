@@ -12,6 +12,12 @@ elif [ "$@" == "dec" ]; then
   TO=`expr ${CURRENT} - 100`
   echo "${CURRENT} - 100 = ${TO}"
   echo "${TO}" > brightness
+elif [ "$1" == "set" ]; then
+  echo "set ${2}"
+  cd /sys/class/backlight/intel_backlight/
+  CURRENT=`cat /sys/class/backlight/intel_backlight/actual_brightness`
+  echo "${CURRENT} -> ${2}"
+  echo "${2}" > brightness
 else
   echo 'give me inc or dec'
 fi
